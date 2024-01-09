@@ -1,76 +1,76 @@
 @font-face {
-    font-family: "HakgyoansimWoojuR";
-    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2")
-        format("woff2");
-    font-weight: normal;
-    font-style: normal;
+  font-family: "HakgyoansimWoojuR";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @media only screen and (max-width: 600px) {
-    .card {
-        width: 100%;
-    }
+  .card {
+    width: 100%;
+  }
 }
 
 body {
-    font-family: "HakgyoansimWoojuR";
-    background-color: #f0f0f0;
+  font-family: "HakgyoansimWoojuR";
+  background-color: #f0f0f0;
 }
 
 header {
-    background-color: #3498db;
-    color: #fff;
-    padding: 15px 0;
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 20px;
+  background-color: #3498db;
+  color: #fff;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
 .cardbox {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 .card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
-    padding: 20px;
-    width: 200px;
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
 }
 
 .card img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .search-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 #searchInput {
-    padding: 10px;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    font-size: 16px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  font-size: 16px;
 }
 
 #searchButton {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 16px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
 }
