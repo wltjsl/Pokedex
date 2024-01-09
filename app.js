@@ -16,9 +16,7 @@ async function fetchPokemonData() {
   loading = true;
 
   try {
-    const response = await fetch(
-      `${config.apiUrl}pokemon?limit=20&offset=${(page - 1) * 20}`
-    );
+    const response = await fetch(`${config.apiUrl}pokemon?limit=20&offset=${(page - 1) * 20}`);
     const data = await response.json();
 
     // 가져온 데이터를 이용하여 각 포켓몬 카드를 동적으로 생성
@@ -55,9 +53,7 @@ async function createPokemonCard(pokemon) {
   const flavorText = await getFlavorText(pokemon.species.url);
 
   card.innerHTML = `
-      <img src="${pokemon.sprites.other.showdown.front_default}" alt="${
-    pokemon.name
-  }">
+      <img src="${pokemon.sprites.other.showdown.front_default}" alt="${pokemon.name}">
       <h2>${pokemon.name}</h2>
       <p>Type: ${pokemon.types.map((type) => type.type.name).join(", ")}</p>
       <p>${flavorText}</p>
@@ -72,9 +68,7 @@ async function getFlavorText(speciesUrl) {
     const speciesData = await response.json();
 
     // 원하는 언어로 도감 설명 추출
-    const flavorText = speciesData.flavor_text_entries.find(
-      (entry) => entry.language.name === "ko"
-    );
+    const flavorText = speciesData.flavor_text_entries.find((entry) => entry.language.name === "ko");
 
     return flavorText ? flavorText.flavor_text : "No flavor text available.";
   } catch (error) {
@@ -123,9 +117,7 @@ function handleCardClick(event) {
 }
 
 function handleSearch() {
-  const searchInput = document
-    .getElementById("searchInput")
-    .value.toLowerCase();
+  const searchInput = document.getElementById("searchInput").value.toLowerCase();
 
   // 검색어에 맞는 포켓몬 카드만 표시
   const allCards = document.querySelectorAll(".card");
