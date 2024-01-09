@@ -1,6 +1,7 @@
 @font-face {
-    font-family: 'HakgyoansimWoojuR';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2') format('woff2');
+    font-family: "HakgyoansimWoojuR";
+    src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/HakgyoansimWoojuR.woff2")
+        format("woff2");
     font-weight: normal;
     font-style: normal;
 }
@@ -11,28 +12,24 @@
     }
 }
 
-
 body {
-    font-family: 'HakgyoansimWoojuR';
+    font-family: "HakgyoansimWoojuR";
     background-color: #f0f0f0;
 }
 
 header {
     background-color: #3498db;
     color: #fff;
-    padding: 15px 0; 
+    padding: 15px 0;
     text-align: center;
     font-size: 32px;
     margin-bottom: 20px;
 }
 
-
-
 .cardbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-
 }
 
 .card {

@@ -16,7 +16,9 @@ async function fetchPokemonData() {
     loading = true;
 
     try {
-        const response = await fetch(`${config.apiUrl}pokemon?limit=20&offset=${(page - 1) * 20}`);
+        const response = await fetch(
+            `${config.apiUrl}pokemon?limit=20&offset=${(page - 1) * 20}`
+        );
         const data = await response.json();
 
         // 가져온 데이터를 이용하여 각 포켓몬 카드를 동적으로 생성
@@ -53,9 +55,11 @@ async function createPokemonCard(pokemon) {
     const flavorText = await getFlavorText(pokemon.species.url);
 
     card.innerHTML = `
-      <img src="${pokemon.sprites.other.showdown.front_default}" alt="${pokemon.name}">
+      <img src="${pokemon.sprites.other.showdown.front_default}" alt="${
+        pokemon.name
+    }">
       <h2>${pokemon.name}</h2>
-      <p>Type: ${pokemon.types.map(type => type.type.name).join(", ")}</p>
+      <p>Type: ${pokemon.types.map((type) => type.type.name).join(", ")}</p>
       <p>${flavorText}</p>
     `;
     card.dataset.pokedexNumber = pokemon.id;
@@ -68,9 +72,13 @@ async function getFlavorText(speciesUrl) {
         const speciesData = await response.json();
 
         // 원하는 언어로 도감 설명 추출
-        const flavorText = speciesData.flavor_text_entries.find(entry => entry.language.name === "ko");
+        const flavorText = speciesData.flavor_text_entries.find(
+            (entry) => entry.language.name === "ko"
+        );
 
-        return flavorText ? flavorText.flavor_text : "No flavor text available.";
+        return flavorText
+            ? flavorText.flavor_text
+            : "No flavor text available.";
     } catch (error) {
         console.error("Error fetching flavor text:", error);
         return "Error fetching flavor text.";
@@ -79,7 +87,10 @@ async function getFlavorText(speciesUrl) {
 
 function handleScroll() {
     // 스크롤이 페이지 아래로 80% 정도 내려갔을 때 새로운 데이터 가져오기
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight * 0.8) {
+    if (
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight * 0.8
+    ) {
         fetchPokemonData();
     }
 }
@@ -94,10 +105,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // 검색 버튼 클릭 이벤트 리스너 등록
     const searchButton = document.getElementById("searchButton");
     searchButton.addEventListener("click", handleSearch);
-    searchInput.addEventListener("keypress", function(e){
+    searchInput.addEventListener("keypress", function (e) {
         if (e.key === "Enter") {
-        handleSearch();
-      }  
+            handleSearch();
+        }
     });
 
     // 카드 클릭 이벤트 리스너 등록
@@ -111,17 +122,19 @@ function handleCardClick(event) {
     const card = event.target.closest(".card");
     if (card) {
         const pokedexNumber = card.dataset.pokedexNumber;
-        console.log(pokedexNumber)
+        console.log(pokedexNumber);
         alert(`도감 번호: ${pokedexNumber}`);
     }
 }
 
 function handleSearch() {
-    const searchInput = document.getElementById("searchInput").value.toLowerCase();
+    const searchInput = document
+        .getElementById("searchInput")
+        .value.toLowerCase();
 
     // 검색어에 맞는 포켓몬 카드만 표시
     const allCards = document.querySelectorAll(".card");
-    allCards.forEach(card => {
+    allCards.forEach((card) => {
         const pokemonName = card.querySelector("h2").textContent.toLowerCase();
         if (pokemonName.includes(searchInput)) {
             card.style.display = "block";
